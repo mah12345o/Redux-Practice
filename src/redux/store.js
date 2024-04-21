@@ -1,16 +1,18 @@
 import { createStore } from 'redux'
 
-const COUNTER_ADD = "INCREMENT";
+const INCREMENT= "INCREMENT";
 const initialState = {
-    numOfItems: 0,
+    numOfItems: JSON.parse(localStorage.getItem('cartItems')) || "",
   };
  
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case COUNTER_ADD:
+        case INCREMENT:
+            const updatedCartItems = action.payload;
+            localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
             return {
                 ...state,
-                counteradd: state.numOfItems + 1,
+                numOfItems: updatedCartItems,
             };
 
         default:

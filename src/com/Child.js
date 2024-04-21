@@ -6,7 +6,7 @@ const Child = () => {
     const dispatch = useDispatch()
   return (
     <div>
-        <button onClick={() => dispatch(increment())}>add</button>
+        <button onClick={() => dispatch(increment("name"))}>add</button>
     </div>
   )
 }
